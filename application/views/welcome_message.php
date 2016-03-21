@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Page Heading
-                    <small>Secondary Text</small>
+                    <small>Welcome to SongUniverse, a place for you to find out how your favourite songs are performing on the charts around the world. These charts include the Billboard Hot 100, The official UK top 40 and the Canadian Hot 100.</small>
                 </h1>
             </div>
         </div>
