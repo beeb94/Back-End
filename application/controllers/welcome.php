@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 	
 	public function welcome()
 	{
-		$this->load->view('welcome_view.php', $data);
+		$this->load->view('welcome_view.php');
 	}
 	
 	public function home()
@@ -57,6 +57,11 @@ class Welcome extends CI_Controller {
 			$this->user_model->add_user();
 			$this->thank();
 		}
+	}
+	
+	public function thank()
+	{
+		$this->load->view('thank_view.php');
 	}
 }
 

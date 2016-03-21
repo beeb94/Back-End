@@ -67,15 +67,25 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Welcome User<small></small>
+                <h1 class="page-header">Thanks <small>for registering. Now you can login with your email address and password.</small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
+	<?php echo form_open("welcome/login"); ?>
+	<fieldset class="form-group">
+	    <label for="exampleInputEmail1">Email:</label>
+    	<input type="text" class="form-control" id="email" name="email" value="" />
+	</fieldset>
+	<fieldset class="form-group">
+	    <label for="exampleInputPassword1">Password:</label>
+		<input type="password" class="form-control" id="pass" name="pass" value="" />
+		<br>
+	<button type="submit" class="btn btn-primary">Sign in</button>
+	</fieldset>
+    <?php echo form_close(); ?>
 
-
-        <hr>
-        <!-- Footer -->
+ <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
