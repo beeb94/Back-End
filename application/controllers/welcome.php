@@ -2,29 +2,61 @@
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('form');
+		$this->load->model('user_model');
+		$this->load->library('session');
+	}
+	
 	public function index()
 	{
 		$this->load->view('home');
 	}
 	
-	public function register()
+	public function login()
 	{
-		$this->load->view('register.php');
+		$email=$this->input->post('email');
+		$password=md5($this->input->post('pass'));
+
+		$result=$this->user_model->login($email,$password);
+		if($result) $this->welcome();
+		else        $this->index();
+	}
+	
+	public function welcome()
+	{
+		$this->load->view('welcome_view.php', $data);
+	}
+	
+	public function home()
+	{
+		$this->load->view('registration_view.php');
+	}
+	
+	public function registration()
+	{
+		$this->load->library('form_validation');
+		// field name, error message, validation rules
+		$this->form_validation->set_rules('user_name', 'User Name', 'trim|required|min_length[4]|xss_clean');
+		$this->form_validation->set_rules('email_address', 'Your Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('confirm_email_address', 'Email Confirmation', 'trim|required|matches[email_address]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+		$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('address', 'Address', 'trim|min_length[4]|xss_clean');
+		$this->form_validation->set_rules('city', 'City', 'trim|min_length[4]|xss_clean');
+		$this->form_validation->set_rules('postcode', 'Postcode', 'trim|min_length[4]|xss_clean');
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->home();
+		}
+		else
+		{
+			$this->user_model->add_user();
+			$this->thank();
+		}
 	}
 }
 
