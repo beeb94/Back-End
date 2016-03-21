@@ -240,6 +240,8 @@ function isValidEmailAddress(emailAddress) {
 
     <!-- Bootstrap Core JavaScript -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/bootstrap.min.js" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/bootstrap.js" />
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/npm.js" />
 </body>
 
 </html>
