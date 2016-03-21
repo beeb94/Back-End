@@ -52,7 +52,7 @@
                         <a href="#">Create</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="<?php echo site_url("welcome/register");?>">Login/Register</a>
                     </li>
                 </ul>
             </div>
