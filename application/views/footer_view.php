@@ -12,12 +12,10 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/jquery.js" />
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/bootstrap.min.js" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/bootstrap.js" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/npm.js" />
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
 </body>
 
 </html>
