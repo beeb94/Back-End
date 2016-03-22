@@ -14,14 +14,14 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('header_view');
 		$this->load->view('home');
-		$this->load->view('footer_view.php');
+		$this->load->view('footer_view');
 	}
 	
 	public function index_in()
 	{
 		$this->load->view('header_view');
 		$this->load->view('home_in.php');
-		$this->load->view('footer_view.php');
+		$this->load->view('footer_view');
 	}
 	
 	public function login()
