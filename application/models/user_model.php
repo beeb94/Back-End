@@ -41,18 +41,4 @@ class User_model extends CI_Model {
 		$this->db->insert('sh_user',$data);
 	}
 	
-	public function check_user_exist($usr)
-    {
-		
-        $this->db->where("username",$usr);
-        $query=$this->db->get("sh_user");
-        if($query->num_rows()>0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

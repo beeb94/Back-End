@@ -12,7 +12,9 @@ class Welcome extends CI_Controller {
 	
 	public function index()
 	{
+		$this->load->view('header_view');
 		$this->load->view('home');
+		$this->load->view('footer_view.php');
 	}
 	
 	public function login()
@@ -27,12 +29,16 @@ class Welcome extends CI_Controller {
 	
 	public function welcome()
 	{
+		$this->load->view('header_view.php');
 		$this->load->view('welcome_view.php');
+		$this->load->view('footer_view.php');
 	}
 	
 	public function home()
 	{
+		$this->load->view('header_view');
 		$this->load->view('registration_view.php');
+		$this->load->view('footer_view.php');
 	}
 	
 	public function registration()
@@ -61,8 +67,24 @@ class Welcome extends CI_Controller {
 	
 	public function thank()
 	{
+		$this->load->view('header_view');
 		$this->load->view('thank_view.php');
+		$this->load->view('footer_view.php');
 	}
+	
+	public function logout()
+	{
+		$newdata = array(
+		'user_id'   =>'',
+		'user_name'  =>'',
+		'user_email'     => '',
+		'logged_in' => FALSE,
+		);
+		$this->session->unset_userdata($newdata );
+		$this->session->sess_destroy();
+		$this->index();
+	}
+	
 }
 
 /* End of file welcome.php */
