@@ -52,6 +52,16 @@ class User_model extends CI_Model {
 		        );
 		$this->db->insert('job', $data);
  
-        } 
+        }
+	
+	public function getallsongs(){ 
+                         $query = $this->db->get('job');  
+         return $query;  
+        }
+	
+	public function delete($id){
+	                $this->load->database();
+	                $this->db->delete('job', array('song_id' => $id)); 
+        }
 	
 }

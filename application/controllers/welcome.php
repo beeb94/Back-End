@@ -124,12 +124,32 @@ class Welcome extends CI_Controller {
                         $this->load->view("footer_view");
 		}
 	}
+	public function allSongs() 
+        {
+                        $this->load->database();
+			$this->load->model("user_model"); 
+                        $data['jobs']=$this->user_model->getallsongs();
+			$this->load->view("header_view", $data);
+                        $this->load->view("allsongs", $data);
+			$this->load->view("footer_view", $data);
+                }
 		
-		
-		
-		
-		
-		
-		
+	public function del($id){
+                        $data['title']= 'Deleted';
+                        $this->load->library('table');
+                        $this->load->helper('html');  
+                        $this->load->model('user_model');
+                        if((int)$id > 0){
+                        $this->user_model->delete($id);
+                }
+                        $data['query'] = $this->user_model->getallsongs();
+                        $this->load->helper('url');
+                        //redirect('user/details');
+                        $this->output->set_header('refresh:2;url='.site_url().'/welcome/allSongs');
+                        $this->load->view('header_view',$data);
+                        $this->load->view('details',$data);
+                        $this->load->view('footer_view',$data);
+
+}
 		
 }

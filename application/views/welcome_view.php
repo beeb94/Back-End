@@ -36,7 +36,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Welcome User<small><a href="<?php echo site_url("welcome/addjobForm");?>">Add song</a></small>
+                <h1 class="page-header">Welcome User<small><a href="<?php echo site_url("welcome/addjobForm");?>">Add song</a><a href="<?php echo site_url("welcome/allSongs");?>">All songs</a></small>
                 </h1>
             </div>
         </div>
