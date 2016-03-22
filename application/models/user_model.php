@@ -41,4 +41,17 @@ class User_model extends CI_Model {
 		$this->db->insert('sh_user',$data);
 	}
 	
+	public function insertJob() 
+        {
+	        $data=array(
+		        'song_title'=>$this->input->post('song_title'),
+			'artist'=>$this->input->post('artist'),
+			'album'=>$this->input->post('album'),
+			'BBHOT100'=>$this->input->post('BBHOT100'),
+			'UKTOP40'=>$this->input->post('UKTOP40')
+		        );
+		$this->db->insert('job', $data);
+ 
+        } 
+	
 }

@@ -74,8 +74,6 @@ class Welcome extends CI_Controller {
 	
 	public function thank()
 	{
-		if(empty($_SESSION['username']))
-                die();
 		$this->load->view('header_view');
 		$this->load->view('thank_view.php');
 		$this->load->view('footer_view.php');
@@ -94,4 +92,44 @@ class Welcome extends CI_Controller {
 		$this->index();
 	}
 	
+	public function addjobForm(){ 
+	        $this->load->helper('form'); 
+                $this->load->view('header_view.php');
+	        $this->load->view('newsong.php');
+                $this->load->view('footer_view.php');
+	} 
+	 
+	public function addsong()
+	{		
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+		// field name, error message, validation rules
+		$this->form_validation->set_rules('song_title', 'Song Title',        'trim|required|min_length[4]|xss_clean');
+		$this->form_validation->set_rules('artist', 'Artist', 'trim|required|min_length[4]|xss_clean');
+		$this->form_validation->set_rules('album', 'Album', 'trim|required|min_length[4]|xss_clean');
+		$this->form_validation->set_rules('BBHOT100', 'Billboard Hot 100 Position', 'trim|required|min_length[1]|xss_clean');
+		$this->form_validation->set_rules('UKTOP40', 'UK Top 40 Position', 'trim|required|min_length[1]|xss_clean');
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->load->view("header_view");
+	                $this->load->view("newsong");
+                        $this->load->view("footer_view");
+		}
+		else
+		{
+			$this->user_model->insertJob();
+			$this->load->view("header_view");
+	                $this->load->view("confirmation");
+                        $this->load->view("footer_view");
+		}
+	}
+		
+		
+		
+		
+		
+		
+		
+		
 }

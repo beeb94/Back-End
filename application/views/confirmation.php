@@ -1,4 +1,4 @@
-    <!-- Navigation -->
+  <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,8 +36,13 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Welcome User<small><a href="<?php echo site_url("welcome/addjobForm");?>">Add song</a></small>
+                <h1 class="page-header">Welcome User<small></small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
+<?php
+echo "<p>";
+echo "You have added your song!";
+echo "</p>";
+?>
