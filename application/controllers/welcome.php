@@ -151,5 +151,10 @@ class Welcome extends CI_Controller {
                         $this->load->view('footer_view',$data);
 
 }
+    public function export()
+    {
+        $this->load->database();
+        $this->load->view('export.php');
+    }
 		
 }
