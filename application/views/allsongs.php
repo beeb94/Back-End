@@ -52,7 +52,6 @@
         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
     <thead>
   <tr>
- <th>ID</th>
 <th>Song Title</th>    
 <th>Artist</th>    
 <th>Album</th>
@@ -67,7 +66,6 @@
       foreach($jobs->result() as $row) 
 {
  echo "<tr>";
- echo "<td>".$row->song_id."</td>";
  echo "<td>".$row->song_title."</td>";
  echo "<td>".$row->artist."</td>";
  echo "<td>".$row->album."</td>";
