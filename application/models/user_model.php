@@ -59,9 +59,103 @@ class User_model extends CI_Model {
          return $query;  
         }
 	
+	
 	public function delete($id){
 	                $this->load->database();
 	                $this->db->delete('job', array('song_id' => $id)); 
         }
+	
+	public function downloadNumberOnes(){
+	    $SQL = "SELECT artist, COUNT(BBHOT100) AS 'Number Ones'
+FROM job 
+GROUP BY artist 
+HAVING COUNT(*) > 0";
+$header = '';
+$result ='';
+$exportData = mysql_query ($SQL ) or die ( "Sql error : " . mysql_error( ) );
+ 
+$fields = mysql_num_fields ( $exportData );
+ 
+for ( $i = 0; $i < $fields; $i++ )
+{
+    $header .= mysql_field_name( $exportData , $i ) . "\t";
+}
+ 
+while( $row = mysql_fetch_row( $exportData ) )
+{
+    $line = '';
+    foreach( $row as $value )
+    {                                            
+        if ( ( !isset( $value ) ) || ( $value == "" ) )
+        {
+            $value = "\t";
+        }
+        else
+        {
+            $value = str_replace( '"' , '""' , $value );
+            $value = '"' . $value . '"' . "\t";
+        }
+        $line .= $value;
+    }
+    $result .= trim( $line ) . "\n";
+}
+$result = str_replace( "\r" , "" , $result );
+ 
+if ( $result == "" )
+{
+    $result = "\nNo Record(s) Found!\n";                        
+}
+ 
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=SongData.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+print "$header\n$result";
+	}
+	
+	public function downloadAll(){
+	    $SQL = "SELECT  * from job";
+$header = '';
+$result ='';
+$exportData = mysql_query ($SQL ) or die ( "Sql error : " . mysql_error( ) );
+ 
+$fields = mysql_num_fields ( $exportData );
+ 
+for ( $i = 0; $i < $fields; $i++ )
+{
+    $header .= mysql_field_name( $exportData , $i ) . "\t";
+}
+ 
+while( $row = mysql_fetch_row( $exportData ) )
+{
+    $line = '';
+    foreach( $row as $value )
+    {                                            
+        if ( ( !isset( $value ) ) || ( $value == "" ) )
+        {
+            $value = "\t";
+        }
+        else
+        {
+            $value = str_replace( '"' , '""' , $value );
+            $value = '"' . $value . '"' . "\t";
+        }
+        $line .= $value;
+    }
+    $result .= trim( $line ) . "\n";
+}
+$result = str_replace( "\r" , "" , $result );
+ 
+if ( $result == "" )
+{
+    $result = "\nNo Record(s) Found!\n";                        
+}
+ 
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=SongData.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+print "$header\n$result";
+	}
 	
 }
