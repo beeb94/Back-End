@@ -151,10 +151,18 @@ class Welcome extends CI_Controller {
                         $this->load->view('footer_view',$data);
 
 }
-    public function export()
+    public function exportNumberOnes()
     {
         $this->load->database();
-        $this->load->view('export.php');
+        $this->load->model('user_model');
+	$data['jobs']=$this->user_model->downloadNumberOnes();
+    }
+    
+    public function exportAll()
+    {
+        $this->load->database();
+        $this->load->model('user_model');
+	$data['jobs']=$this->user_model->downloadAll();
     }
 		
 }

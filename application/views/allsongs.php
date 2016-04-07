@@ -41,14 +41,23 @@
             </div>
         </div>
         <!-- /.row -->
-         <?php echo form_open("welcome/export"); ?>
+         <?php echo form_open("welcome/exportNumberOnes"); ?>
  
 			<div class="control-group">
-				<div class="controls">
-					<button type="submit" id="export" name="export" class="btn btn-primary button-loading" data-loading-text="Loading...">Export MySQL Data to CSV/Excel File</button>
-				</div>
+			<div class="controls">
+			<button type="submit" id="export" name="export" class="btn btn-primary button-loading" data-loading-text="Loading...">Download Number Ones each Artists obtains</button>
+			</div>
 			</div>
 		<?php echo form_close(); ?>
+	 <?php echo form_open("welcome/exportAll"); ?>
+ 
+			<div class="control-group">
+			<div class="controls">
+			<button type="submit" id="export" name="export" class="btn btn-primary button-loading" data-loading-text="Loading...">Download All Songs</button>
+		        </div>
+			</div>
+		<?php echo form_close(); ?>
+		<hr>
         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
     <thead>
   <tr>
