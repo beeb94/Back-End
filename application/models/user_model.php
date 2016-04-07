@@ -48,7 +48,7 @@ class User_model extends CI_Model {
 			'artist'=>$this->input->post('artist'),
 			'album'=>$this->input->post('album'),
 			'BBHOT100'=>$this->input->post('BBHOT100'),
-			'UKTOP40'=>$this->input->post('UKTOP40')
+			'us_date'=>$this->input->post('us_date')
 		        );
 		$this->db->insert('job', $data);
  

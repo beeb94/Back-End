@@ -108,7 +108,7 @@ class Welcome extends CI_Controller {
 		$this->form_validation->set_rules('artist', 'Artist', 'trim|required|min_length[4]|xss_clean');
 		$this->form_validation->set_rules('album', 'Album', 'trim|required|min_length[4]|xss_clean');
 		$this->form_validation->set_rules('BBHOT100', 'Billboard Hot 100 Position', 'trim|required|min_length[1]|xss_clean');
-		$this->form_validation->set_rules('UKTOP40', 'UK Top 40 Position', 'trim|required|min_length[1]|xss_clean');
+		$this->form_validation->set_rules('us_date', 'Date issued', 'trim|required|min_length[1]|xss_clean');
 
 		if($this->form_validation->run() == FALSE)
 		{

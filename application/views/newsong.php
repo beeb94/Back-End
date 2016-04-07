@@ -59,8 +59,8 @@
 	<input type="text" class="form-control" id="BBHOT100" name="BBHOT100" value="<?php echo set_value('BBHOT100'); ?>" />
 	</fieldset>
 	<fieldset class="form-group">
-	<label for="exampleInputEmail1">UK Top 40 Position:</label>
-	<input type="text" class="form-control" id="UKTOP40" name="UKTOP40" value="<?php echo set_value('UKTOP40'); ?>" />
+	<label for="exampleInputEmail1">Date Issued:</label>
+	<input type="text" class="form-control" id="us_date" name="us_date" value="<?php echo set_value('us_date'); ?>" />
 	</fieldset>
 			<input type="submit" class="btn btn-primary" value="Submit" />
 	<?php echo form_close(); ?>

@@ -56,7 +56,7 @@
 <th>Artist</th>    
 <th>Album</th>
 <th>BBHOT100</th>
-<th>UKTOP40</th>
+<th>Date issued</th>
 <th>Delete</th>
 </tr>
     </thead>
@@ -70,7 +70,7 @@
  echo "<td>".$row->artist."</td>";
  echo "<td>".$row->album."</td>";
  echo "<td>".$row->BBHOT100."</td>";
- echo "<td>".$row->UKTOP40."</td>";
+ echo "<td>".$row->us_date."</td>";
  echo "<td>". anchor('welcome/del/'.$row->song_id,'Delete') ."</td>"; 
 
       }echo "</tr>";
