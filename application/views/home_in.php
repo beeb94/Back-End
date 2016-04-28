@@ -15,10 +15,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Charts</a>
+                        <a href="<?php echo site_url("welcome/addjobForm");?>">Add song</a>
                     </li>
                     <li>
-                        <a href="#">Create</a>
+                        <a href="<?php echo site_url("welcome/allSongs");?>">All songs</a>
                     </li>
                     <li>
                      <a href="<?php echo site_url("welcome/logout");?>">Logout</a>
